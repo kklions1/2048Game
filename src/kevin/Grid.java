@@ -22,7 +22,7 @@ public class Grid {
 	public void printGrid() {
 		for(int i = 0; i < 4; ++i) {
 			for(int j = 0; j < 4; ++j) {
-				System.out.print(mainGrid[i][j].value);
+				System.out.print(mainGrid[i][j].value[mainGrid[i][j].currentValue]); // Messy, but works
 				System.out.print(" "); 
 			}
 			System.out.println("\n");

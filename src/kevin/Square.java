@@ -1,14 +1,12 @@
 package kevin;
 
 public class Square {
-	public int value;
-	/* The value will simply hold a number 0 - 11
-	 * Each number will represent what number is rendered on 
-	 * the final square in the finished product
-	 * 0 will represent an empty square
-	 * the number to be rendered on the square will simply be
-	 * 2^value.
-	 */
+	public int[] value = {0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048};
+	// This array holds all the values needed for the game to work, without having to calculate them on the fly
+	
+	public int currentValue;
+	// Holds the current location in the above array that the square is at
+	
 	
 	public int xPos;
 	public int yPos;
@@ -17,6 +15,7 @@ public class Square {
 	
 	public Square() {
 		// Default Constructor
-		value = 0;
+		currentValue = 0;
+		// Start the value array at index 0
 	}
 }
