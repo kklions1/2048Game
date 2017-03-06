@@ -6,8 +6,11 @@ public class Square {
 	
 	public int currentValue;
 	// Holds the current location in the above array that the square is at
-	
-	
+	/*
+	public void setCurrentValue(int newValue) {
+		currentValue = newValue; // mutator for current value 
+	}
+	*/ 
 	public int xPos;
 	public int yPos;
 	// Store the (x,y) location of in the grid.

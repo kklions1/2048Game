@@ -3,8 +3,10 @@ package kevin;
 public class Grid {
 	
 	public Square[][] mainGrid;  // Declare a 2D array of Squares
-	//mainGrid = new Square[4][4];
 
+	private int[] generate = {1, 2};  // values to insert into squares. modifies currentValue index 
+	
+	private double[] discreteProb = {.75, .25}; // Probability associated with 'generate' array
 	
 	public Grid() {
 		mainGrid = new Square[4][4]; // allocate a 4x4 array of Squares for the main Grid
@@ -29,25 +31,49 @@ public class Grid {
 		}
 	}
 	
+	
+	// This method deals with generating a new square once a move is made.
+	public void generateSquare() {
+		// TODO Implement random number selection with the following specifications:
+		// 1. The number will be randomly assigned to an open square (that is one with a value at 0)
+		// 2. The number assigned will have a .75 chance of being a 2, and a .25 chance of being a 4
+		// 		This means that there can be a square that starts off at the second "level" in the game
+		// 3. Only one square will receive a number per move.
+		
+	
+	}
+	
+	public void gameOver() {
+		// TODO This method checks to see if the game ends.
+		// This will be called after every move
+		System.out.print("did you lose yet?\n"); // dummy statement 
+	}
+	
 	// These methods will likely be used to move the squares around the grid
 	public void moveLeft() {
 		System.out.println("Moving left\n");
 		printGrid();
-		
+		gameOver();
 	}
 	
 	public void moveRight() {
 	    System.out.println("move right\n");
 	    printGrid();
+	    gameOver();
+	    
 	}
 
 	public void moveTop() {
 	    System.out.println("move up\n");
 	    printGrid();
+	    gameOver();
+	    
 	}
 
 	public void moveDown() {
 	    System.out.println("move down\n");
 	    printGrid();
+	    gameOver();
+	    
 	}
 }
