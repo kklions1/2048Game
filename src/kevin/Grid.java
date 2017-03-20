@@ -2,29 +2,26 @@ package kevin;
 
 public class Grid {
 	
+	public final int SIZE = 4;
+	
 	public Square[][] mainGrid;  // Declare a 2D array of Squares
 
-	private int[] generate = {1, 2};  // values to insert into squares. modifies currentValue index 
-	
-	private double[] discreteProb = {.75, .25}; // Probability associated with 'generate' array
 	
 	public Grid() {
-		mainGrid = new Square[4][4]; // allocate a 4x4 array of Squares for the main Grid
+		mainGrid = new Square[SIZE][SIZE]; // allocate a 4x4 array of Squares for the main Grid
 
-		for(int i = 0; i < 4; ++i) {
-			 for(int j = 0; j < 4; ++j) {
-				 	mainGrid[i][j] = new Square();  // Call the Square constructor to initialize the new memory 
-				 	mainGrid[i][j].xPos = i;  		// allocated by the previous steps
-	                mainGrid[i][j].yPos = j;		// as well as initialize the coordinates
+		for(int i = 0; i < SIZE; ++i) {
+			 for(int j = 0; j < SIZE; ++j) {
+				 	mainGrid[i][j] = new Square();  // Call the Square constructor to initialize the new memory
 	                }
 			 }	
 	}
 	 
 	
 	public void printGrid() {
-		for(int i = 0; i < 4; ++i) {
-			for(int j = 0; j < 4; ++j) {
-				System.out.print(mainGrid[i][j].value[mainGrid[i][j].currentValue]); // Messy, but works
+		for(int i = 0; i < SIZE; ++i) {
+			for(int j = 0; j < SIZE; ++j) {
+				System.out.print(mainGrid[i][j].getValue()); 
 				System.out.print(" "); 
 			}
 			System.out.println("\n");
@@ -52,6 +49,7 @@ public class Grid {
 	// These methods will likely be used to move the squares around the grid
 	public void moveLeft() {
 		System.out.println("Moving left\n");
+		
 		printGrid();
 		gameOver();
 	}

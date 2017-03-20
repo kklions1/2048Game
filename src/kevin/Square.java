@@ -1,24 +1,43 @@
 package kevin;
 
 public class Square {
-	public int[] value = {0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048};
-	// This array holds all the values needed for the game to work, without having to calculate them on the fly
-	
-	public int currentValue;
-	// Holds the current location in the above array that the square is at
-	/*
-	public void setCurrentValue(int newValue) {
-		currentValue = newValue; // mutator for current value 
-	}
-	*/ 
-	public int xPos;
-	public int yPos;
-	// Store the (x,y) location of in the grid.
-	// This may be an unnecessary inclusion
+
+	private int value;
 	
 	public Square() {
 		// Default Constructor
-		currentValue = 0;
-		// Start the value array at index 0
+		value = 0;
 	}
+	
+	public Square(int param) {
+		// Constructor for a specific value
+		value = param;
+	}
+	
+	
+	// Accesses for private member value
+	public int getValue() { return this.value; } 
+	
+	// Mutator for private member value
+	public void setValue(int value) { this.value = value; } 
+	
+	
+	// Used to determine if two squares are equal. 
+	// Returns true if they are
+	public boolean isEqual(Square square) {
+		return (this.getValue() == square.getValue());
+	}
+	
+	
+	// Part of the move algorithm. 
+	// Add the value of this square to the value of the parameter
+	public void merge(Square square) {
+		this.setValue(value + square.getValue()); 
+	}
+	
+	// Clear a square by setting its value to 0
+	public void clear() { this.setValue(0); }
+	
+	
+	
 }
