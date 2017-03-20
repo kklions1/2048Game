@@ -1,15 +1,18 @@
 package kevin;
+import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
+
+
 
 public class Grid {
 	
-	public final int SIZE = 4;
+	private final int SIZE = 4;
 	
-	public Square[][] mainGrid;  // Declare a 2D array of Squares
+	private Square[][] mainGrid = new Square[SIZE][SIZE];  // Declare a 2D array of Squares
 
 	
 	public Grid() {
-		mainGrid = new Square[SIZE][SIZE]; // allocate a 4x4 array of Squares for the main Grid
-
 		for(int i = 0; i < SIZE; ++i) {
 			 for(int j = 0; j < SIZE; ++j) {
 				 	mainGrid[i][j] = new Square();  // Call the Square constructor to initialize the new memory
@@ -29,14 +32,52 @@ public class Grid {
 	}
 	
 	
-	// This method deals with generating a new square once a move is made.
-	public void generateSquare() {
-		// TODO Implement random number selection with the following specifications:
-		// 1. The number will be randomly assigned to an open square (that is one with a value at 0)
-		// 2. The number assigned will have a .75 chance of being a 2, and a .25 chance of being a 4
-		// 		This means that there can be a square that starts off at the second "level" in the game
-		// 3. Only one square will receive a number per move.
+	
+	// Used to check if the grid has any empty spaces in it
+	private boolean hasEmptySquare() {
+		for(int i = 0; i < SIZE; ++i) {
+			for(int j = 0; j < SIZE; ++j) {
+				if(mainGrid[i][j].getValue() == 0)
+					return true; // Since a value of 0 is considered empty, return true
+			}
+		}
 		
+		// Algorithm has complexity O(n) 
+		// where n is the number of elements in the grid 
+
+		return false;
+	}
+
+	
+	
+	private boolean hasEqualNeighbour() {
+		for(int i = 0; i < SIZE; ++i) {
+			for(int j = 0; j < SIZE; ++j) {
+				if(j < SIZE - 1) {
+					// check squares along the right side, ignore the last column
+					if(mainGrid[i][j].equals(mainGrid[i][j+1])) 
+						return true;
+				}
+				
+				else if(i < SIZE - 1) {
+					// check squares below the selected square, ignoring the last row
+					if(mainGrid[i][j].equals(mainGrid[i+1][j])) 
+						return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+	// This method deals with generating a new square once a move is made.
+	public boolean generateSquare() {
+		
+		if(!(hasEmptySquare())) {
+			return false;
+		}
+		
+		Random randomGen = new Random();
+		// TODO Finish implementing this method
 	
 	}
 	
