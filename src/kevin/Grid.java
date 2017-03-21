@@ -69,50 +69,81 @@ public class Grid {
 		
 		return false;
 	}
+	
+	private int getNewValue() {
+		Random random = new Random();
+		
+		int rnjesus = random.nextInt(2) + 1; 
+		/* This generates a new number, either a 2 or a 4 for the square value
+		 * TODO make this function generate a 2 or a 4 based on discrete probabilites
+		 * the value of 2 should have a probability of .75
+		 * the value of 4 should have a probability of .25
+		 */
+		return (rnjesus * 2);
+	}
+	
+	
 	// This method deals with generating a new square once a move is made.
 	public boolean generateSquare() {
 		
+		// return false if there is no place to put a new square
+		// a square will not be created in this situation
 		if(!(hasEmptySquare())) {
 			return false;
 		}
 		
 		Random randomGen = new Random();
-		// TODO Finish implementing this method
-	
+
+		// iterate until an empty tile is found
+		while(true) {
+			int x = randomGen.nextInt(SIZE);
+			int y = randomGen.nextInt(SIZE);
+			
+			if(mainGrid[x][y].getValue() == 0)) {
+				mainGrid[x][y].setValue(getNewValue());
+				return true;
+			}
+			
+		}
+		
+		
 	}
+	
+	
 	
 	public void gameOver() {
 		// TODO This method checks to see if the game ends.
 		// This will be called after every move
-		System.out.print("did you lose yet?\n"); // dummy statement 
+		System.out.print("did you lose yet?\n"); // dummy statement does nothing
 	}
 	
-	// These methods will likely be used to move the squares around the grid
-	public void moveLeft() {
-		System.out.println("Moving left\n");
+
+	public void move(Direction direction) {
 		
-		printGrid();
-		gameOver();
+		for(int i = 0; i < SIZE; ++i) {
+			
+			// group of tiles
+			List<Square> squareSet = new ArrayList<Square>();
+			
+			for(int j = 0; j < SIZE; ++j) {
+				
+				// switching on an enum is faster than if/then/else
+				// since there is only one comparison that has to be done
+				switch(direction) {
+				case LEFT: squareSet.add(mainGrid[i][j]); break;
+				case RIGHT: squareSet.add(mainGrid[i][SIZE - j - i]); break;
+				case UP: squareSet.add(mainGrid[j][i]); break;
+				case DOWN: squareSet.add(mainGrid[SIZE - j - i][i]); break;
+
+				
+				default: break;
+				
+				}
+			}
+		}
 	}
 	
-	public void moveRight() {
-	    System.out.println("move right\n");
-	    printGrid();
-	    gameOver();
-	    
-	}
-
-	public void moveTop() {
-	    System.out.println("move up\n");
-	    printGrid();
-	    gameOver();
-	    
-	}
-
-	public void moveDown() {
-	    System.out.println("move down\n");
-	    printGrid();
-	    gameOver();
-	    
-	}
+	
+	
+	
 }
