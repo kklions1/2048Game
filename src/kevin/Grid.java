@@ -49,7 +49,10 @@ public class Grid {
 	}
 
 	
-	
+	// Helps to check for one of the "Game Over" conditions
+	// That is, if a square has a neighbor with the same value as it, a legal move can
+	// be made.  If this method returns true, then the game can continue.  If it does not,
+	// the game may end, but there may still be a valid move.
 	private boolean hasEqualNeighbour() {
 		for(int i = 0; i < SIZE; ++i) {
 			for(int j = 0; j < SIZE; ++j) {
@@ -73,13 +76,13 @@ public class Grid {
 	private int getNewValue() {
 		Random random = new Random();
 		
-		int rnjesus = random.nextInt(2) + 1; 
+		int RGJesus = random.nextInt(2) + 1;
 		/* This generates a new number, either a 2 or a 4 for the square value
-		 * TODO make this function generate a 2 or a 4 based on discrete probabilites
+		 * TODO make this function generate a 2 or a 4 based on discrete probabilities
 		 * the value of 2 should have a probability of .75
 		 * the value of 4 should have a probability of .25
 		 */
-		return (rnjesus * 2);
+		return (RGJesus * 2);
 	}
 	
 	
@@ -123,7 +126,7 @@ public class Grid {
 		for(int i = 0; i < SIZE; ++i) {
 			
 			// group of tiles
-			List<Square> squareSet = new ArrayList<Square>();
+			List<Square> squareSet = new ArrayList<>();
 			
 			for(int j = 0; j < SIZE; ++j) {
 				
