@@ -10,7 +10,13 @@ public class Main {
 		Grid gameGrid = new Grid();
 		
 		gameGrid.printGrid();
-		
+
+		if(!gameGrid.gameOver()) {
+			System.out.println("game on");
+
+		}
+
+
 
 
 	}

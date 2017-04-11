@@ -113,11 +113,18 @@ public class Grid {
 	}
 	
 	
-	
-	public void gameOver() {
-		// TODO This method checks to see if the game ends.
-		// This will be called after every move
-		System.out.print("did you lose yet?\n"); // dummy statement does nothing
+	// Returns true if there is no possible move to be made
+	// If the grid has an empty square, there is a possible move
+	// if no square has a neighbor that is equal to itself, and
+	// the grid is full, there is no possible move.
+
+	public boolean gameOver() {
+		if(hasEmptySquare()) {
+			return false;
+		}
+
+		return !(hasEqualNeighbour());
+
 	}
 	
 
@@ -143,10 +150,63 @@ public class Grid {
 				
 				}
 			}
+			if(!(isEmptySquare(squareSet))) {
+				slide(squareSet);
+
+			}
 		}
 	}
 	
-	
-	
+	private boolean isEmptySquare(List<Square> squareSet) {
+		for(Square tile: squareSet) {
+			if(tile.getValue() != 0)
+				return false;
+		}
+		return true;
+	}
+
+
+	private void slideToEdge(List<Square> squareSet) {
+		for(int i = 0; i < squareSet.size(); ++i) {
+			if(remainingIsZero(squareSet, i))
+				return;
+			while(squareSet.get(i).getValue() == 0) {
+				slideTo(squareSet, i);
+			}
+		}
+	}
+
+	private boolean remainingIsZero(List<Square> squareSet, int i) {
+		List<Square> remainingSquare = new ArrayList<>();
+		for(int j = i; j < squareSet.size(); ++j) {
+			remainingSquare.add(squareSet.get(j));
+		}
+
+		return(isEmptySquare(remainingSquare));
+
+	}
+
+	private void slideTo(List<Square> squareSet, int index) {
+		for(int j = index; j < squareSet.size() - 1; ++j) {
+			squareSet.get(j).setValue(squareSet.get(j + 1).getValue());
+		}
+		squareSet.get(squareSet.size() - 1).clear();
+
+		}
+
+	private void mergeSquare(List<Square> squareSet) {
+		for(int i = 0; i < squareSet.size() - 1; ++i) {
+			if(squareSet.get(i).equals(squareSet.get(i + 1))) {
+				squareSet.get(i).merge(squareSet.get(i + 1));
+				squareSet.get(i + 1).clear();
+				slideTo(squareSet, i + 1);
+
+			}
+		}
+
+	}
+
+
+
 	
 }
