@@ -102,7 +102,7 @@ public class Grid {
 			int x = randomGen.nextInt(SIZE);
 			int y = randomGen.nextInt(SIZE);
 			
-			if(mainGrid[x][y].getValue() == 0)) {
+			if(mainGrid[x][y].getValue() == 0) {
 				mainGrid[x][y].setValue(getNewValue());
 				return true;
 			}
@@ -156,6 +156,11 @@ public class Grid {
 			}
 		}
 	}
+
+	private void slide(List<Square> squareSet) {
+	    slideToEdge(squareSet);
+	    mergeSquare(squareSet);
+    }
 	
 	private boolean isEmptySquare(List<Square> squareSet) {
 		for(Square tile: squareSet) {
