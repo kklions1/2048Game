@@ -3,9 +3,10 @@ Programming class.  The idea is to recreate the 2048 game.  Obviously, the
 original idea for the game is not mine.  This program is for educational
 purposes only, and is not to be distributed for profit. 
 
-Currently, The overall data structure of the game has been implemented.
-It relies on a 2D grid of Square objects.
-The game then prints a grid of 0s, takes an input, does nothing, then ends.
+The program currently has the full algorithms implemented.  However the
+GUI is very simplistic, and the program cannot be interacted with by the user
+currently. User input (to actually play the game) and hopefully more
+appealing graphics are things I plan to add in the future.
 
 If you would like to run this game, simply run main.java in src/kevin
 

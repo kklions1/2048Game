@@ -31,13 +31,18 @@ public class Square {
 	
 	// Part of the move algorithm. 
 	// Add the value of this square to the value of the parameter
-	public void merge(Square square) {
+    public void merge(Square square) {
 		this.setValue(value + square.getValue()); 
 	}
 	
 	// Clear a square by setting its value to 0
 	public void clear() { this.setValue(0); }
-	
+
+
+	// convert a square's value into a string
+	public String toString() {
+		return (Integer.toString(this.getValue()));
+	}
 	
 	
 }

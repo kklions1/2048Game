@@ -7,9 +7,9 @@ import java.util.List;
 
 public class Grid {
 	
-	private final int SIZE = 4;
+	public static final int SIZE = 4;
 	
-	private Square[][] mainGrid = new Square[SIZE][SIZE];  // Declare a 2D array of Squares
+	public Square[][] mainGrid = new Square[SIZE][SIZE];  // Declare a 2D array of Squares
 
 	
 	public Grid() {
@@ -19,7 +19,7 @@ public class Grid {
 	                }
 			 }	
 	}
-	 
+
 	
 	public void printGrid() {
 		for(int i = 0; i < SIZE; ++i) {
@@ -29,6 +29,9 @@ public class Grid {
 			}
 			System.out.println("\n");
 		}
+
+		System.out.println();
+
 	}
 	
 	
@@ -87,7 +90,7 @@ public class Grid {
 	
 	
 	// This method deals with generating a new square once a move is made.
-	public boolean generateSquare() {
+    public boolean generateSquare() {
 		
 		// return false if there is no place to put a new square
 		// a square will not be created in this situation
@@ -164,7 +167,7 @@ public class Grid {
 	
 	private boolean isEmptySquare(List<Square> squareSet) {
 		for(Square tile: squareSet) {
-			if(tile.getValue() != 0)
+			if(tile.getValue() != 0)  // a square with a value of 0 is defined as "empty"
 				return false;
 		}
 		return true;
@@ -201,7 +204,7 @@ public class Grid {
 
 	private void mergeSquare(List<Square> squareSet) {
 		for(int i = 0; i < squareSet.size() - 1; ++i) {
-			if(squareSet.get(i).equals(squareSet.get(i + 1))) {
+			if(squareSet.get(i).isEqual(squareSet.get(i + 1))) {
 				squareSet.get(i).merge(squareSet.get(i + 1));
 				squareSet.get(i + 1).clear();
 				slideTo(squareSet, i + 1);
