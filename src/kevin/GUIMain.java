@@ -9,7 +9,13 @@ import java.awt.event.*;
 
 public class GUIMain extends Frame {
 
-    Label[][] labelGrid;
+    private Label[][] labelGrid;
+
+    private Panel controlPanel;
+    private Button upButton;
+    private Button leftButton;
+    private Button rightButton;
+    private Button downButton;
 
     // prepare the main grid layout for the numbers
     // and sets all labels in the grid layout to the initial mainGrid values
@@ -17,7 +23,11 @@ public class GUIMain extends Frame {
     public GUIMain(Grid grid) {
         super.setSize(500,500);
 
-        super.setLayout(new GridLayout(4, 5));
+       // Panel gridPanel = new Panel(new GridLayout(4, 4));
+        Panel controlPanel = new Panel(new FlowLayout());
+
+
+        super.setLayout(new GridLayout(5,4));
 
         labelGrid = new Label[Grid.SIZE][Grid.SIZE];
 
@@ -28,6 +38,21 @@ public class GUIMain extends Frame {
                 labelGrid[i][j].setText(grid.mainGrid[i][j].toString());
             }
         }
+
+        super.setTitle("2048 Game");
+
+        rightButton = new Button("Right");
+        leftButton = new Button("Left");
+        downButton = new Button("Down");
+        upButton = new Button("Up");
+        controlPanel.add(upButton);
+        controlPanel.add(downButton);
+        controlPanel.add(leftButton);
+        controlPanel.add(rightButton);
+
+
+        super.add(controlPanel);
+
         super.setVisible(true);
 
         addWindowListener(new WindowAdapter() {
