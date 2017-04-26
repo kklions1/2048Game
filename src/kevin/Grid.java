@@ -144,9 +144,9 @@ public class Grid {
 				// since there is only one comparison that has to be done
 				switch(direction) {
 				case LEFT: squareSet.add(mainGrid[i][j]); break;
-				case RIGHT: squareSet.add(mainGrid[i][SIZE - j - i]); break;
+				case RIGHT: squareSet.add(mainGrid[i][SIZE - j - 1]); break;
 				case UP: squareSet.add(mainGrid[j][i]); break;
-				case DOWN: squareSet.add(mainGrid[SIZE - j - i][i]); break;
+				case DOWN: squareSet.add(mainGrid[SIZE - j - 1][i]); break;
 
 				
 				default: break;
@@ -158,6 +158,9 @@ public class Grid {
 
 			}
 		}
+		generateSquare();
+		gameOver();
+
 	}
 
 	private void slide(List<Square> squareSet) {
@@ -213,7 +216,6 @@ public class Grid {
 		}
 
 	}
-
 
 
 	

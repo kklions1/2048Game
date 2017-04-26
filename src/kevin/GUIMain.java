@@ -23,8 +23,8 @@ public class GUIMain extends Frame {
     public GUIMain(Grid grid) {
         super.setSize(500,500);
 
-       // Panel gridPanel = new Panel(new GridLayout(4, 4));
-        Panel controlPanel = new Panel(new FlowLayout());
+
+
 
 
         super.setLayout(new GridLayout(5,4));
@@ -41,17 +41,7 @@ public class GUIMain extends Frame {
 
         super.setTitle("2048 Game");
 
-        rightButton = new Button("Right");
-        leftButton = new Button("Left");
-        downButton = new Button("Down");
-        upButton = new Button("Up");
-        controlPanel.add(upButton);
-        controlPanel.add(downButton);
-        controlPanel.add(leftButton);
-        controlPanel.add(rightButton);
-
-
-        super.add(controlPanel);
+        setupGUI();
 
         super.setVisible(true);
 
@@ -61,6 +51,46 @@ public class GUIMain extends Frame {
 
     }
 
+
+    // this sets up the buttons, as well as the panel and sets action commands
+    // for the buttons
+    private void setupGUI() {
+
+        Panel controlPanel = new Panel(new FlowLayout());
+
+        // Allocate the buttons
+        rightButton = new Button("Right");
+        leftButton = new Button("Left");
+        downButton = new Button("Down");
+        upButton = new Button("Up");
+
+        // Add them to the control panel
+        controlPanel.add(upButton);
+        controlPanel.add(downButton);
+        controlPanel.add(leftButton);
+        controlPanel.add(rightButton);
+
+        // Add the control panel to the super frame
+        super.add(controlPanel);
+
+        // Set the action command for pressing a button
+        rightButton.setActionCommand("RIGHT");
+        leftButton.setActionCommand("LEFT");
+        upButton.setActionCommand("UP");
+        downButton.setActionCommand("DOWN");
+
+        // Set the Action Listener class for the button
+        rightButton.addActionListener(new ButtonClickListener());
+        upButton.addActionListener(new ButtonClickListener());
+        leftButton.addActionListener(new ButtonClickListener());
+        downButton.addActionListener(new ButtonClickListener());
+
+
+    }
+
+
+    // a draw function for the grid class
+    // this redraws the number grid being displayed on the GUI
     public void displayGrid(Grid grid) {
         for(int i = 0; i < Grid.SIZE; ++i) {
             for(int j = 0; j < Grid.SIZE; ++j) {
@@ -68,4 +98,40 @@ public class GUIMain extends Frame {
             }
         }
     }
+
+    // private action listener class for buttons
+    private class ButtonClickListener extends Grid implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            // Switches on the Action Command String
+            switch (e.getActionCommand()) {
+                case "LEFT":
+                    System.out.print("test");
+                    move(Direction.LEFT);
+                    break;
+                case "RIGHT":
+                    System.out.print("test");
+
+                    move(Direction.RIGHT);
+                    break;
+                case "UP":
+                    System.out.print("test");
+
+                    move(Direction.UP);
+                    break;
+                case "DOWN":
+                    System.out.print("test");
+
+                    move(Direction.DOWN);
+                    break;
+
+
+            }
+        }
+    }
 }
+
+
+
+
+
+
