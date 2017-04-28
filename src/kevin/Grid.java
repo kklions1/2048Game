@@ -5,14 +5,14 @@ import java.util.List;
 
 
 
-public class Grid {
+class Grid {
 	
-	public static final int SIZE = 4;
+	static final int SIZE = 4;
 	
-	public Square[][] mainGrid = new Square[SIZE][SIZE];  // Declare a 2D array of Squares
+	Square[][] mainGrid = new Square[SIZE][SIZE];  // Declare a 2D array of Squares
 
 	
-	public Grid() {
+	Grid() {
 		for(int i = 0; i < SIZE; ++i) {
 			 for(int j = 0; j < SIZE; ++j) {
 				 	mainGrid[i][j] = new Square();  // Call the Square constructor to initialize the new memory
@@ -21,7 +21,7 @@ public class Grid {
 	}
 
 	
-	public void printGrid() {
+	void printGrid() {
 		for(int i = 0; i < SIZE; ++i) {
 			for(int j = 0; j < SIZE; ++j) {
 				System.out.print(mainGrid[i][j].getValue()); 
@@ -90,24 +90,30 @@ public class Grid {
 	
 	
 	// This method deals with generating a new square once a move is made.
-    public boolean generateSquare() {
+    void generateSquare() {
 		
-		// return false if there is no place to put a new square
+		// return if there is no place to put a new square
 		// a square will not be created in this situation
 		if(!(hasEmptySquare())) {
-			return false;
+			System.out.print("grid full\n");
+			return;
 		}
 		
 		Random randomGen = new Random();
 
 		// iterate until an empty tile is found
+		// this has to be random, so we cannot just sequentially check for empty grid spaces
+
 		while(true) {
 			int x = randomGen.nextInt(SIZE);
 			int y = randomGen.nextInt(SIZE);
+			System.out.print("New grid location: (" + x + ", " + y + ")\n");
 			
 			if(mainGrid[x][y].getValue() == 0) {
+
 				mainGrid[x][y].setValue(getNewValue());
-				return true;
+
+				return;
 			}
 			
 		}
@@ -121,7 +127,7 @@ public class Grid {
 	// if no square has a neighbor that is equal to itself, and
 	// the grid is full, there is no possible move.
 
-	public boolean gameOver() {
+	boolean gameOver() {
 		if(hasEmptySquare()) {
 			return false;
 		}
@@ -131,15 +137,15 @@ public class Grid {
 	}
 	
 
-	public void move(Direction direction) {
+	void move(Direction direction) {
 		
 		for(int i = 0; i < SIZE; ++i) {
-			
+
 			// group of tiles
 			List<Square> squareSet = new ArrayList<>();
-			
+
 			for(int j = 0; j < SIZE; ++j) {
-				
+
 				// switching on an enum is faster than if/then/else
 				// since there is only one comparison that has to be done
 				switch(direction) {
@@ -147,10 +153,8 @@ public class Grid {
 				case RIGHT: squareSet.add(mainGrid[i][SIZE - j - 1]); break;
 				case UP: squareSet.add(mainGrid[j][i]); break;
 				case DOWN: squareSet.add(mainGrid[SIZE - j - 1][i]); break;
-
-				
 				default: break;
-				
+
 				}
 			}
 			if(!(isEmptySquare(squareSet))) {
@@ -158,8 +162,9 @@ public class Grid {
 
 			}
 		}
-		generateSquare();
-		gameOver();
+		System.out.println();
+
+		printGrid();
 
 	}
 

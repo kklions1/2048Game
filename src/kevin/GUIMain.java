@@ -2,30 +2,25 @@ package kevin;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Objects;
 
 /**
  * Main GUI frame for the game
  */
 
-public class GUIMain extends Frame {
+class GUIMain extends Frame {
 
     private Label[][] labelGrid;
 
     private Panel controlPanel;
-    private Button upButton;
-    private Button leftButton;
-    private Button rightButton;
-    private Button downButton;
+
+
+
 
     // prepare the main grid layout for the numbers
-    // and sets all labels in the grid layout to the initial mainGrid values
-    // which should be 0
-    public GUIMain(Grid grid) {
+    // create all the labels and add them to the GUIMain Frame, they are still empty memory at this stage
+    GUIMain() {
         super.setSize(500,500);
-
-
-
-
 
         super.setLayout(new GridLayout(5,4));
 
@@ -35,7 +30,7 @@ public class GUIMain extends Frame {
             for(int j= 0; j < Grid.SIZE; ++j) {
                 labelGrid[i][j] = new Label();
                 super.add(labelGrid[i][j]);
-                labelGrid[i][j].setText(grid.mainGrid[i][j].toString());
+                //labelGrid[i][j].setText(grid.mainGrid[i][j].toString());
             }
         }
 
@@ -59,10 +54,10 @@ public class GUIMain extends Frame {
         Panel controlPanel = new Panel(new FlowLayout());
 
         // Allocate the buttons
-        rightButton = new Button("Right");
-        leftButton = new Button("Left");
-        downButton = new Button("Down");
-        upButton = new Button("Up");
+        Button rightButton = new Button("Right");
+        Button leftButton = new Button("Left");
+        Button downButton = new Button("Down");
+        Button upButton = new Button("Up");
 
         // Add them to the control panel
         controlPanel.add(upButton);
@@ -86,12 +81,17 @@ public class GUIMain extends Frame {
         downButton.addActionListener(new ButtonClickListener());
 
 
+        Button helpButton = new Button("Help");
+        helpButton.setActionCommand("HELP");
+        helpButton.addActionListener(new HelpWindowListener());
+        controlPanel.add(helpButton);
+
     }
 
 
     // a draw function for the grid class
     // this redraws the number grid being displayed on the GUI
-    public void displayGrid(Grid grid) {
+    void displayGrid(Grid grid) {
         for(int i = 0; i < Grid.SIZE; ++i) {
             for(int j = 0; j < Grid.SIZE; ++j) {
                 labelGrid[i][j].setText(grid.mainGrid[i][j].toString());
@@ -110,22 +110,24 @@ public class GUIMain extends Frame {
                     break;
                 case "RIGHT":
                     System.out.print("test");
-
                     move(Direction.RIGHT);
                     break;
                 case "UP":
                     System.out.print("test");
-
                     move(Direction.UP);
                     break;
                 case "DOWN":
                     System.out.print("test");
-
                     move(Direction.DOWN);
                     break;
-
-
             }
+        }
+    }
+
+    private class HelpWindowListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            if(Objects.equals(e.getActionCommand(), "HELP"))
+                new HelpMenu();
         }
     }
 }
