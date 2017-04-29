@@ -28,6 +28,7 @@ public class GameOverScreen extends Frame {
         add(gameOverOK);
 
         setVisible(true);
+        setAlwaysOnTop(true);
 
         // We set the window adapter to close, as well as the button
         // so that the user can close the program with either option

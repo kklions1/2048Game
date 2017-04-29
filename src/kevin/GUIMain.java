@@ -11,38 +11,39 @@ import java.util.Objects;
 class GUIMain extends Frame {
 
     private Label[][] labelGrid;
-
-    private Panel controlPanel;
-
+    //private Panel controlPanel;
     private Grid mainMethodGrid;
+    //private GraphicsTile[][] tileGrid;
 
     // Getter are setter for the main grids
-    Grid getMainGrid() { return mainMethodGrid; } // sends the modified instance of grid back to main
+    // Grid getMainGrid() { return mainMethodGrid; } // sends the modified instance of grid back to main
     void setMainGrid(Grid g) { this.mainMethodGrid = g; } // gets the instance of grid from main
 
 
     // prepare the main grid layout for the numbers
     // create all the labels and add them to the GUIMain Frame, they are still empty memory at this stage
     GUIMain() {
-        super.setSize(500,500);
-
-        super.setLayout(new GridLayout(5,4));
+        // first we set some simple parameters pertaining to the frame
+        setSize(500,500);
+        setLayout(new GridLayout(5,4));
 
         labelGrid = new Label[Grid.SIZE][Grid.SIZE];
+        //tileGrid = new GraphicsTile[Grid.SIZE][Grid.SIZE];
+
 
         for(int i = 0; i < Grid.SIZE; ++i) {
             for(int j= 0; j < Grid.SIZE; ++j) {
                 labelGrid[i][j] = new Label();
-                super.add(labelGrid[i][j]);
-                //labelGrid[i][j].setText(grid.mainGrid[i][j].toString());
+                add(labelGrid[i][j]);// the grid has no values in it at this stage
+                labelGrid[i][j].setAlignment(Label.CENTER);
             }
         }
 
-        super.setTitle("2048 Game");
+        setTitle("2048 Game");
 
         setupGUI();
 
-        super.setVisible(true);
+        setVisible(true);
 
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent we) { System.exit(0); }
@@ -55,9 +56,10 @@ class GUIMain extends Frame {
     // for the buttons
     private void setupGUI() {
 
+        //
         Panel controlPanel = new Panel(new FlowLayout());
 
-        // Allocate the buttons
+        // Define the buttons
         Button rightButton = new Button("Right");
         Button leftButton = new Button("Left");
         Button downButton = new Button("Down");
@@ -103,11 +105,13 @@ class GUIMain extends Frame {
         }
     }
 
-    // private action listener class for buttons
+
+    /**
+     * Implentation of the Action Listener for the game
+     */
     private class ButtonClickListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             // Switches on the Action Command String
-            // FIXME always displays game over screen
             switch (e.getActionCommand()) {
                 case "LEFT":
                     System.out.print("test");

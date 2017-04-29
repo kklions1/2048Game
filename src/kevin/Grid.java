@@ -61,14 +61,25 @@ class Grid {
 			for(int j = 0; j < SIZE; ++j) {
 				if(j < SIZE - 1) {
 					// check squares along the right side, ignore the last column
-					if(mainGrid[i][j].equals(mainGrid[i][j+1])) 
-						return true;
-				}
-				
-				else if(i < SIZE - 1) {
-					// check squares below the selected square, ignoring the last row
-					if(mainGrid[i][j].equals(mainGrid[i+1][j])) 
-						return true;
+					//System.out.println("line 64, j < 3");
+
+                    if(mainGrid[i][j].isEqual(mainGrid[i][j+1])) {
+                        //System.out.println("true, line 65");
+					    return true;
+                    }
+
+                   // System.out.println("line 71, did not return true");
+                }
+
+               // System.out.println("line 74, still inner for loop, about to check if #2");
+				if(i < SIZE - 1) {
+                    //System.out.println("line 76, inside if statement");
+                   // System.out.println("line 77, " + mainGrid[i+1][j] + " " + mainGrid[i][j]);
+                    // check squares below the selected square, ignoring the last row
+					if(mainGrid[i][j].isEqual(mainGrid[i+1][j])) {
+                        //System.out.println("true, line 80");
+					    return true;
+                    }
 				}
 			}
 		}
@@ -94,8 +105,7 @@ class Grid {
 		
 		// return if there is no place to put a new square
 		// a square will not be created in this situation
-		if(!(hasEmptySquare())) {
-			System.out.print("grid full\n");
+		if(!(hasEmptySquare())) { // if hasEmptySquare() returns false...
 			return;
 		}
 		
@@ -128,13 +138,12 @@ class Grid {
 	// the grid is full, there is no possible move.
 
 	void gameOver() {
-
-		// FIXME this always displays the game over screen
-		if(hasEmptySquare() && !hasEqualNeighbour()) {
-			new GameOverScreen();
+		if(hasEmptySquare() && !(hasEqualNeighbour())) {
+			System.out.println(Boolean.toString(hasEmptySquare()));
+			System.out.println(Boolean.toString(hasEqualNeighbour()));
+		    new GameOverScreen();
 		}
-
-
+        System.out.println(Boolean.toString(hasEqualNeighbour()));
 	}
 	
 
