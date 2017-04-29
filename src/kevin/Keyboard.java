@@ -5,6 +5,7 @@ import java.util.EventListener;
 
 /**
  *  Trying to make a class that reads keyboard inputs
+ *
  */
 public abstract class Keyboard implements KeyListener {
     public Keyboard() {

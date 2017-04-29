@@ -13,7 +13,7 @@ class GUIMain extends Frame {
     private Label[][] labelGrid;
     //private Panel controlPanel;
     private Grid mainMethodGrid;
-    //private GraphicsTile[][] tileGrid;
+    private GraphicsTile[][] tileGrid;
 
     // Getter are setter for the main grids
     // Grid getMainGrid() { return mainMethodGrid; } // sends the modified instance of grid back to main
@@ -28,14 +28,14 @@ class GUIMain extends Frame {
         setLayout(new GridLayout(5,4));
 
         labelGrid = new Label[Grid.SIZE][Grid.SIZE];
-        //tileGrid = new GraphicsTile[Grid.SIZE][Grid.SIZE];
+        tileGrid = new GraphicsTile[Grid.SIZE][Grid.SIZE];
 
 
         for(int i = 0; i < Grid.SIZE; ++i) {
             for(int j= 0; j < Grid.SIZE; ++j) {
-                labelGrid[i][j] = new Label();
-                add(labelGrid[i][j]);// the grid has no values in it at this stage
-                labelGrid[i][j].setAlignment(Label.CENTER);
+                tileGrid[i][j] = new GraphicsTile();
+                add(tileGrid[i][j]);// the grid has no values in it at this stage
+                //tileGrid[i][j].setAlignment(Label.CENTER);
             }
         }
 
@@ -100,7 +100,7 @@ class GUIMain extends Frame {
     void displayGrid() {
         for(int i = 0; i < Grid.SIZE; ++i) {
             for(int j = 0; j < Grid.SIZE; ++j) {
-                labelGrid[i][j].setText(mainMethodGrid.mainGrid[i][j].toString());
+                tileGrid[i][j].setLabel(mainMethodGrid.mainGrid[i][j].toString());
             }
         }
     }
