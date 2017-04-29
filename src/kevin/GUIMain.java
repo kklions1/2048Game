@@ -14,7 +14,11 @@ class GUIMain extends Frame {
 
     private Panel controlPanel;
 
+    private Grid mainMethodGrid;
 
+    // Getter are setter for the main grids
+    Grid getMainGrid() { return mainMethodGrid; } // sends the modified instance of grid back to main
+    void setMainGrid(Grid g) { this.mainMethodGrid = g; } // gets the instance of grid from main
 
 
     // prepare the main grid layout for the numbers
@@ -91,34 +95,42 @@ class GUIMain extends Frame {
 
     // a draw function for the grid class
     // this redraws the number grid being displayed on the GUI
-    void displayGrid(Grid grid) {
+    void displayGrid() {
         for(int i = 0; i < Grid.SIZE; ++i) {
             for(int j = 0; j < Grid.SIZE; ++j) {
-                labelGrid[i][j].setText(grid.mainGrid[i][j].toString());
+                labelGrid[i][j].setText(mainMethodGrid.mainGrid[i][j].toString());
             }
         }
     }
 
     // private action listener class for buttons
-    private class ButtonClickListener extends Grid implements ActionListener {
+    private class ButtonClickListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             // Switches on the Action Command String
             switch (e.getActionCommand()) {
                 case "LEFT":
                     System.out.print("test");
-                    move(Direction.LEFT);
+                    mainMethodGrid.move(Direction.LEFT);
+                    mainMethodGrid.generateSquare();
+                    mainMethodGrid.gameOver();
                     break;
                 case "RIGHT":
                     System.out.print("test");
-                    move(Direction.RIGHT);
+                    mainMethodGrid.move(Direction.RIGHT);
+                    mainMethodGrid.generateSquare();
+                    mainMethodGrid.gameOver();
                     break;
                 case "UP":
                     System.out.print("test");
-                    move(Direction.UP);
+                    mainMethodGrid.move(Direction.UP);
+                    mainMethodGrid.generateSquare();
+                    mainMethodGrid.gameOver();
                     break;
                 case "DOWN":
                     System.out.print("test");
-                    move(Direction.DOWN);
+                    mainMethodGrid.move(Direction.DOWN);
+                    mainMethodGrid.generateSquare();
+                    mainMethodGrid.gameOver();
                     break;
             }
         }

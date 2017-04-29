@@ -127,12 +127,12 @@ class Grid {
 	// if no square has a neighbor that is equal to itself, and
 	// the grid is full, there is no possible move.
 
-	boolean gameOver() {
-		if(hasEmptySquare()) {
-			return false;
+	void gameOver() {
+
+		if(hasEmptySquare() && !hasEqualNeighbour()) {
+			new GameOverScreen();
 		}
 
-		return !(hasEqualNeighbour());
 
 	}
 	
@@ -161,6 +161,7 @@ class Grid {
 				slide(squareSet);
 
 			}
+
 		}
 		System.out.println();
 

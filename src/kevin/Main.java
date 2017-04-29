@@ -9,15 +9,16 @@ public class Main {
 
 		GUIMain superFrame = new GUIMain();
 
-		superFrame.displayGrid(gameGrid);
+		gameGrid.generateSquare();
 
+
+		superFrame.setMainGrid(gameGrid);
+
+
+		while(true) {
+			superFrame.displayGrid();
+		}
 
 
 	}
-
-
-
-
-
-
 }	
