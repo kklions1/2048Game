@@ -129,6 +129,7 @@ class Grid {
 
 	void gameOver() {
 
+		// FIXME this always displays the game over screen
 		if(hasEmptySquare() && !hasEqualNeighbour()) {
 			new GameOverScreen();
 		}

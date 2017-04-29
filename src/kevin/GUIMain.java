@@ -107,6 +107,7 @@ class GUIMain extends Frame {
     private class ButtonClickListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             // Switches on the Action Command String
+            // FIXME always displays game over screen
             switch (e.getActionCommand()) {
                 case "LEFT":
                     System.out.print("test");
