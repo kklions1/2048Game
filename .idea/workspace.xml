@@ -2,29 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d282f68-7915-4a2a-8328-c85d2b6991bd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/kevin/gameovergrid.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/kevin/GUIMain$1.class" afterPath="$PROJECT_DIR$/bin/kevin/GUIMain$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/kevin/GUIMain$ButtonClickListener.class" afterPath="$PROJECT_DIR$/bin/kevin/GUIMain$ButtonClickListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/kevin/GUIMain$HelpWindowListener.class" afterPath="$PROJECT_DIR$/bin/kevin/GUIMain$HelpWindowListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/kevin/GUIMain.class" afterPath="$PROJECT_DIR$/bin/kevin/GUIMain.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/kevin/GameOverScreen$1.class" afterPath="$PROJECT_DIR$/bin/kevin/GameOverScreen$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/kevin/GameOverScreen$OkayListener.class" afterPath="$PROJECT_DIR$/bin/kevin/GameOverScreen$OkayListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/kevin/GameOverScreen.class" afterPath="$PROJECT_DIR$/bin/kevin/GameOverScreen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/kevin/GraphicsTile.class" afterPath="$PROJECT_DIR$/bin/kevin/GraphicsTile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/kevin/Grid$1.class" afterPath="$PROJECT_DIR$/bin/kevin/Grid$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/kevin/Grid.class" afterPath="$PROJECT_DIR$/bin/kevin/Grid.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/kevin/HelpMenu$1.class" afterPath="$PROJECT_DIR$/bin/kevin/HelpMenu$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/kevin/HelpMenu.class" afterPath="$PROJECT_DIR$/bin/kevin/HelpMenu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/kevin/Keyboard.class" afterPath="$PROJECT_DIR$/bin/kevin/Keyboard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/kevin/Square.class" afterPath="$PROJECT_DIR$/bin/kevin/Square.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/kevin/Keyboard.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kevin/GUIMain.java" afterPath="$PROJECT_DIR$/src/kevin/GUIMain.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kevin/GameOverScreen.java" afterPath="$PROJECT_DIR$/src/kevin/GameOverScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kevin/GraphicsTile.java" afterPath="$PROJECT_DIR$/src/kevin/GraphicsTile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kevin/Grid.java" afterPath="$PROJECT_DIR$/src/kevin/Grid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kevin/HelpMenu.java" afterPath="$PROJECT_DIR$/src/kevin/HelpMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kevin/Keyboard.java" afterPath="$PROJECT_DIR$/src/kevin/Keyboard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kevin/Square.java" afterPath="$PROJECT_DIR$/src/kevin/Square.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,7 +18,58 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Direction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/kevin/Direction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameOverScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/kevin/GameOverScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="127">
+              <caret line="13" column="80" lean-forward="false" selection-start-line="13" selection-start-column="80" selection-end-line="13" selection-end-column="80" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Grid.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/kevin/Grid.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="141" column="8" lean-forward="true" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gameovergrid.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/kevin/gameovergrid.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GraphicsTile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/kevin/GraphicsTile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -77,11 +110,11 @@
         <option value="$PROJECT_DIR$/src/kevin/Keyboard.java" />
         <option value="$PROJECT_DIR$/src/kevin/GraphicsTile.java" />
         <option value="$PROJECT_DIR$/src/kevin/HelpMenu.java" />
-        <option value="$PROJECT_DIR$/src/kevin/GameOverScreen.java" />
-        <option value="$PROJECT_DIR$/src/kevin/Grid.java" />
         <option value="$PROJECT_DIR$/src/kevin/Square.java" />
         <option value="$PROJECT_DIR$/src/kevin/GUIMain.java" />
         <option value="$PROJECT_DIR$/src/kevin/gameovergrid.txt" />
+        <option value="$PROJECT_DIR$/src/kevin/GameOverScreen.java" />
+        <option value="$PROJECT_DIR$/src/kevin/Grid.java" />
       </list>
     </option>
   </component>
@@ -106,42 +139,25 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="GUI test" />
+              <option name="myItemId" value="2048Game" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="GUI test" />
+              <option name="myItemId" value="2048Game" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="GUI test" />
+              <option name="myItemId" value="2048Game" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="GUI test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GUI test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GUI test" />
+              <option name="myItemId" value="2048Game" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -155,10 +171,13 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../2048 Game" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -453,7 +472,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40485176" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40485176" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -797,13 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kevin/GraphicsTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/kevin/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -818,31 +830,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kevin/Direction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/kevin/gameovergrid.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/kevin/GUIMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-880">
           <caret line="78" column="35" lean-forward="true" selection-start-line="78" selection-start-column="35" selection-end-line="78" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/kevin/GameOverScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -857,13 +848,47 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kevin/Direction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kevin/GraphicsTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kevin/gameovergrid.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kevin/GameOverScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="13" column="80" lean-forward="false" selection-start-line="13" selection-start-column="80" selection-end-line="13" selection-end-column="80" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kevin/Grid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1280">
-          <caret line="66" column="7" lean-forward="true" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
+        <state relative-caret-position="418">
+          <caret line="141" column="8" lean-forward="true" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>

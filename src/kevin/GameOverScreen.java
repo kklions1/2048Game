@@ -10,6 +10,8 @@ import java.util.Objects;
  * the game is over. This happens in the event that the game no longer has any
  * valid moves to be made
  */
+
+//FIXME this isnt ever being displayed, even as a false positive for some reason
 public class GameOverScreen extends JFrame {
     GameOverScreen() {
 

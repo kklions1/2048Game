@@ -128,6 +128,8 @@ class Grid {
 	// if no square has a neighbor that is equal to itself, and
 	// the grid is full, there is no possible move.
 
+	//FIXME This is never displaying the gameover screen correctly.
+	//FIXME Also, when it does work, it does so at improper times
 	void gameOver() {
 		if(hasEmptySquare() && !(hasEqualNeighbour())) {
 		    new GameOverScreen();
