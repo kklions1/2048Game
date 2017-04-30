@@ -9,11 +9,13 @@ import java.util.Objects;
  * Main GUI frame for the game
  */
 
-class GUIMain extends Frame implements KeyListener {
+class GUIMain extends JFrame {
 
    // private Label[][] labelGrid;
     private Grid mainMethodGrid;
     private GraphicsTile[][] tileGrid;
+    private int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
+
 
     // Getter are setter for the main grids
     // Grid getMainGrid() { return mainMethodGrid; } // sends the modified instance of grid back to main
@@ -42,16 +44,23 @@ class GUIMain extends Frame implements KeyListener {
 
         setTitle("2048 Game");
 
-        setupGUI();
+
+        JPanel controlPanel = new JPanel(new FlowLayout());
+
+        // Add the control panel to the super frame
+        add(controlPanel);
+
+        // Make the help button
+        JButton helpButton = new JButton("Help");
+        helpButton.setActionCommand("HELP");
+        helpButton.addActionListener(new HelpWindowListener());
+        controlPanel.add(helpButton);
+
+
+        setupControls();
 
         setVisible(true);
 
-        // FIXME this returns false, meaning that the window does not have focus
-        // FIXME use keybinding in swing to fix this problem
-        System.out.println(Boolean.toString(hasFocus()));
-
-        //FIXME WHY YOU NO WORK
-        addKeyListener(this);
 
         // Make the 'X' button on the window actually close the application
         addWindowListener(new WindowAdapter() {
@@ -62,45 +71,71 @@ class GUIMain extends Frame implements KeyListener {
 
 
     /**
-     * Sets up the the
+     * Sets up the the controls of the game
      */
-    private void setupGUI() {
+    private void setupControls() {
 
-        //
-        Panel controlPanel = new Panel(new FlowLayout());
+        Action keyMove = new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                switch (e.getActionCommand()) {
+                    case "w":
+                        mainMethodGrid.move(Direction.UP);
+                        mainMethodGrid.moveProgression();
+                        break;
+                    case "a":
+                        mainMethodGrid.move(Direction.LEFT);
+                        mainMethodGrid.moveProgression();
+                        break;
+                    case "s":
+                        mainMethodGrid.move(Direction.DOWN);
+                        mainMethodGrid.moveProgression();
+                        break;
+                    case "d":
+                        mainMethodGrid.move(Direction.RIGHT);
+                        mainMethodGrid.moveProgression();
+                        break;
+                    // Accidentally pressing CAPSLOCK would break the controls of the game
+                    // So these are here to fix that
+                    case "W":
+                        mainMethodGrid.move(Direction.UP);
+                        mainMethodGrid.moveProgression();
+                        break;
+                    case "A":
+                        mainMethodGrid.move(Direction.LEFT);
+                        mainMethodGrid.moveProgression();
+                        break;
+                    case "S":
+                        mainMethodGrid.move(Direction.DOWN);
+                        mainMethodGrid.moveProgression();
 
-        // Define the buttons
-        JButton rightButton = new JButton("Right");
-        JButton leftButton = new JButton("Left");
-        JButton downButton = new JButton("Down");
-        JButton upButton = new JButton("Up");
-
-        // Add them to the control panel
-        controlPanel.add(upButton);
-        controlPanel.add(downButton);
-        controlPanel.add(leftButton);
-        controlPanel.add(rightButton);
-
-        // Add the control panel to the super frame
-        add(controlPanel);
-
-        // Set the action command for pressing a button
-        rightButton.setActionCommand("RIGHT");
-        leftButton.setActionCommand("LEFT");
-        upButton.setActionCommand("UP");
-        downButton.setActionCommand("DOWN");
-
-        // Set the Action Listener class for the button
-        rightButton.addActionListener(new ButtonClickListener());
-        upButton.addActionListener(new ButtonClickListener());
-        leftButton.addActionListener(new ButtonClickListener());
-        downButton.addActionListener(new ButtonClickListener());
+                        break;
+                    case "D":
+                        mainMethodGrid.move(Direction.RIGHT);
+                        mainMethodGrid.moveProgression();
+                        break;
+                }
+            }
+        };
 
 
-        JButton helpButton = new JButton("Help");
-        helpButton.setActionCommand("HELP");
-        helpButton.addActionListener(new HelpWindowListener());
-        controlPanel.add(helpButton);
+        JRootPane rootPane = getRootPane();
+
+        // Bind for W -> up
+        rootPane.getInputMap(IFW).put(KeyStroke.getKeyStroke("W"), "UP");
+        rootPane.getActionMap().put("UP", keyMove);
+
+        // Bind for A -> left
+        rootPane.getInputMap(IFW).put(KeyStroke.getKeyStroke("A"), "LEFT");
+        rootPane.getActionMap().put("LEFT", keyMove);
+
+        // Bind for S -> down
+        rootPane.getInputMap(IFW).put(KeyStroke.getKeyStroke("S"), "DOWN");
+        rootPane.getActionMap().put("DOWN", keyMove);
+
+        // Bind for D -> right
+        rootPane.getInputMap(IFW).put(KeyStroke.getKeyStroke("D"), "RIGHT");
+        rootPane.getActionMap().put("RIGHT", keyMove);
+
 
     }
 
@@ -117,42 +152,7 @@ class GUIMain extends Frame implements KeyListener {
 
 
     /**
-     * Implentation of the Action Listener for the game
-     */
-    private class ButtonClickListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            // Switches on the Action Command String
-            switch (e.getActionCommand()) {
-                case "LEFT":
-                    System.out.print("test");
-                    mainMethodGrid.move(Direction.LEFT);
-                    mainMethodGrid.generateSquare();
-                    mainMethodGrid.gameOver();
-                    break;
-                case "RIGHT":
-                    System.out.print("test");
-                    mainMethodGrid.move(Direction.RIGHT);
-                    mainMethodGrid.generateSquare();
-                    mainMethodGrid.gameOver();
-                    break;
-                case "UP":
-                    System.out.print("test");
-                    mainMethodGrid.move(Direction.UP);
-                    mainMethodGrid.generateSquare();
-                    mainMethodGrid.gameOver();
-                    break;
-                case "DOWN":
-                    System.out.print("test");
-                    mainMethodGrid.move(Direction.DOWN);
-                    mainMethodGrid.generateSquare();
-                    mainMethodGrid.gameOver();
-                    break;
-            }
-        }
-    }
-
-    /**
-     * When the Help button is pressed, this class creates a new help window
+     * Listener class for the help button
      */
     private class HelpWindowListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
@@ -162,93 +162,6 @@ class GUIMain extends Frame implements KeyListener {
     }
 
 
-    @Override
-    public void keyPressed(KeyEvent e) {
-        System.out.println("KEYPRESS REGISTERED"); // FIXME never gets called
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_W:
-                System.out.println("UP");
-                mainMethodGrid.move(Direction.UP);
-                mainMethodGrid.generateSquare();
-                mainMethodGrid.gameOver();
-                break;
-            case KeyEvent.VK_A:
-                mainMethodGrid.move(Direction.LEFT);
-                mainMethodGrid.generateSquare();
-                mainMethodGrid.gameOver();
-                break;
-            case KeyEvent.VK_S:
-                mainMethodGrid.move(Direction.DOWN);
-                mainMethodGrid.generateSquare();
-                mainMethodGrid.gameOver();
-                break;
-            case KeyEvent.VK_D:
-                mainMethodGrid.move(Direction.RIGHT);
-                mainMethodGrid.generateSquare();
-                mainMethodGrid.gameOver();
-                break;
-        }
-    }
-
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        // FIXME this never gets called either
-        System.out.println("KEYRELEASE REGISTERED");
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        // FIXME same problem here. This cannot be called
-        System.out.println("KEYTYPED REGISTERED");
-    }
-
-    /**
-     * Keyboard Listener class
-     */
-    private class KeyboardListener implements KeyListener {
-        //FIXME WHY DON'T I WORK RIGHT
-        @Override
-        public void keyPressed(KeyEvent e) {
-            System.out.println("KEYPRESS REGISTERED"); // FIXME never gets called
-            switch (e.getKeyCode()) {
-                case KeyEvent.VK_W:
-                    System.out.println("UP");
-                    mainMethodGrid.move(Direction.UP);
-                    mainMethodGrid.generateSquare();
-                    mainMethodGrid.gameOver();
-                    break;
-                case KeyEvent.VK_A:
-                    mainMethodGrid.move(Direction.LEFT);
-                    mainMethodGrid.generateSquare();
-                    mainMethodGrid.gameOver();
-                    break;
-                case KeyEvent.VK_S:
-                    mainMethodGrid.move(Direction.DOWN);
-                    mainMethodGrid.generateSquare();
-                    mainMethodGrid.gameOver();
-                    break;
-                case KeyEvent.VK_D:
-                    mainMethodGrid.move(Direction.RIGHT);
-                    mainMethodGrid.generateSquare();
-                    mainMethodGrid.gameOver();
-                    break;
-            }
-        }
-
-
-        @Override
-        public void keyReleased(KeyEvent e) {
-            // FIXME this never gets called either
-            System.out.println("KEYRELEASE REGISTERED");
-        }
-
-        @Override
-        public void keyTyped(KeyEvent e) {
-            // FIXME same problem here. This cannot be called
-            System.out.println("KEYTYPED REGISTERED");
-        }
-    }
 }
 
 

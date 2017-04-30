@@ -8,16 +8,18 @@ import java.util.List;
 class Grid {
 	
 	static final int SIZE = 4;
-	
+	boolean victoryAchieved;
 	Square[][] mainGrid = new Square[SIZE][SIZE];  // Declare a 2D array of Squares
 
 	
 	Grid() {
 		for(int i = 0; i < SIZE; ++i) {
-			 for(int j = 0; j < SIZE; ++j) {
-				 	mainGrid[i][j] = new Square();  // Call the Square constructor to initialize the new memory
-	                }
-			 }	
+			for(int j = 0; j < SIZE; ++j) {
+				 mainGrid[i][j] = new Square();  // Call the Square constructor to initialize the new memory
+			 }
+		}
+		victoryAchieved = false; // sets a flag that the game has not yet been won
+
 	}
 
 
@@ -127,13 +129,24 @@ class Grid {
 	// If the grid has an empty square, there is a possible move
 	// if no square has a neighbor that is equal to itself, and
 	// the grid is full, there is no possible move.
-	void gameOver() {
+	private void gameOver() {
 		if(!hasEmptySquare() && !(hasEqualNeighbour())) {
 		    new GameOverScreen();
 		}
 
 	}
-	
+
+	// Method checks to see if any square in the grid is at 2048, and if so, displays the
+	// victory panel
+	private void gameWin() {
+		for(int i = 0; i < SIZE; ++i) {
+			for(int j = 0; j < SIZE; ++j) {
+				if(mainGrid[i][j].getValue() == 2048)
+					new VictoryScreen();
+					victoryAchieved = true;
+			}
+		}
+	}
 
 	void move(Direction direction) {
 		
@@ -159,12 +172,7 @@ class Grid {
 				slide(squareSet);
 
 			}
-
 		}
-		System.out.println();
-
-		printGrid();
-
 	}
 
 	private void slide(List<Square> squareSet) {
@@ -218,5 +226,15 @@ class Grid {
 
 			}
 		}
+	}
+
+	// Makes my switch statements later on a little cleaner
+	// This method condenses method calls that happen on every move in the game
+	// regardless of the direction
+	void moveProgression() {
+		generateSquare();
+		gameOver();
+		if(!victoryAchieved)
+			gameWin();
 	}
 }
