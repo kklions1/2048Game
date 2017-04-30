@@ -11,7 +11,7 @@ import java.util.Objects;
 
 class GUIMain extends Frame implements KeyListener {
 
-   // private Label[][] labelGrid;;
+   // private Label[][] labelGrid;
     private Grid mainMethodGrid;
     private GraphicsTile[][] tileGrid;
 

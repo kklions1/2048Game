@@ -11,7 +11,6 @@ import java.util.Objects;
  * valid moves to be made
  */
 
-//FIXME this isnt ever being displayed, even as a false positive for some reason
 public class GameOverScreen extends JFrame {
     GameOverScreen() {
 
