@@ -1,25 +1,27 @@
 package kevin;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-class HelpMenu extends Frame {
+
+class HelpMenu extends JFrame {
 
     HelpMenu() {
 
 
-        Label helpTextLine1;
-        Label helpTextLine3;
-        Label helpTextLine2;
+        JLabel helpTextLine1;
+        JLabel helpTextLine3;
+        JLabel helpTextLine2;
 
         setTitle("Help");
         setSize(300,150);
 
 
-        helpTextLine1 = new Label("Controls:");
-        helpTextLine2 = new Label("W = up, A = left, S = down, D = right");
-        helpTextLine3 = new Label("Written by Kevin Klions");
+        helpTextLine1 = new JLabel("Controls:");
+        helpTextLine2 = new JLabel("W = up, A = left, S = down, D = right");
+        helpTextLine3 = new JLabel("Written by Kevin Klions");
 
         setLayout(new FlowLayout());
 

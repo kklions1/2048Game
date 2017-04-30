@@ -1,0 +1,10 @@
+0 2 8 4
+
+0 2 16 8
+
+4 8 2 4
+
+0 4 8 2
+
+
+This grid prompted a false positive game over screen

@@ -24,7 +24,7 @@ public class Square {
 	
 	// Used to determine if two squares are equal. 
 	// Returns true if they are
-	boolean isEqual(Square square) { return (value == square.getValue()); }
+	boolean isEqual(Square square) { return (this.getValue() == square.getValue()); }
 	
 	
 	// Part of the move algorithm. 

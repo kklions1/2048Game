@@ -1,22 +1,25 @@
 package kevin;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
  * Used to help color the grid so that things don't look super ugly
  * and also it increases readability of the actual numbers
  */
-public class GraphicsTile extends Panel {
+public class GraphicsTile extends JPanel {
 
-    private Label value;
+    private JLabel value;
 
     GraphicsTile() {
 
-        value = new Label();
-        value.setAlignment(Label.CENTER);
+        value = new JLabel();
+        value.setAlignmentX(JLabel.CENTER);
+        value.setAlignmentY(JLabel.CENTER);
         add(value);
+        //setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         setVisible(true);
-        setBackground(Color.BLUE);
+
 
     }
 

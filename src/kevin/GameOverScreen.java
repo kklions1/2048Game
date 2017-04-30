@@ -1,5 +1,6 @@
 package kevin;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Objects;
@@ -9,21 +10,21 @@ import java.util.Objects;
  * the game is over. This happens in the event that the game no longer has any
  * valid moves to be made
  */
-public class GameOverScreen extends Frame {
+public class GameOverScreen extends JFrame {
     GameOverScreen() {
 
-        // Label and a button
-        Label gameOverText = new Label("Game Over");
-        Button gameOverOK = new Button("OK");
+        // JLabel and a button
+        JLabel gameOverText = new JLabel("Game Over");
+        JButton gameOverOK = new JButton("OK");
 
-        gameOverText.setAlignment(Label.CENTER);
-
+        gameOverText.setAlignmentX(JLabel.CENTER);
+        gameOverText.setAlignmentY(JLabel.CENTER);
         // Set Layout, title, and size of the window
         setTitle("GAME OVER");
         setLayout(new GridLayout(2,1));
         setSize(300,150);
 
-        // Push the Label and Button into the layout
+        // Push the JLabel and JButton into the layout
         add(gameOverText);
         add(gameOverOK);
 

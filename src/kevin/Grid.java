@@ -20,7 +20,8 @@ class Grid {
 			 }	
 	}
 
-	
+
+	// Print the grid to console
 	void printGrid() {
 		for(int i = 0; i < SIZE; ++i) {
 			for(int j = 0; j < SIZE; ++j) {
@@ -61,23 +62,15 @@ class Grid {
 			for(int j = 0; j < SIZE; ++j) {
 				if(j < SIZE - 1) {
 					// check squares along the right side, ignore the last column
-					//System.out.println("line 64, j < 3");
-
                     if(mainGrid[i][j].isEqual(mainGrid[i][j+1])) {
-                        //System.out.println("true, line 65");
 					    return true;
                     }
-
-                   // System.out.println("line 71, did not return true");
                 }
 
-               // System.out.println("line 74, still inner for loop, about to check if #2");
 				if(i < SIZE - 1) {
-                    //System.out.println("line 76, inside if statement");
-                   // System.out.println("line 77, " + mainGrid[i+1][j] + " " + mainGrid[i][j]);
+
                     // check squares below the selected square, ignoring the last row
 					if(mainGrid[i][j].isEqual(mainGrid[i+1][j])) {
-                        //System.out.println("true, line 80");
 					    return true;
                     }
 				}
@@ -117,8 +110,6 @@ class Grid {
 		while(true) {
 			int x = randomGen.nextInt(SIZE);
 			int y = randomGen.nextInt(SIZE);
-			System.out.print("New grid location: (" + x + ", " + y + ")\n");
-			
 			if(mainGrid[x][y].getValue() == 0) {
 
 				mainGrid[x][y].setValue(getNewValue());
@@ -139,11 +130,9 @@ class Grid {
 
 	void gameOver() {
 		if(hasEmptySquare() && !(hasEqualNeighbour())) {
-			System.out.println(Boolean.toString(hasEmptySquare()));
-			System.out.println(Boolean.toString(hasEqualNeighbour()));
 		    new GameOverScreen();
 		}
-        System.out.println(Boolean.toString(hasEqualNeighbour()));
+
 	}
 	
 
