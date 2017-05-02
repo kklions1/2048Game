@@ -1,5 +1,9 @@
 package kevin;
 
+/**
+ * This is the Square class, it is the main unit in the game.
+ * It holds a value, and can do a few simple operations on itself, and another square object
+ */
 public class Square {
 
 	private int value;
@@ -8,12 +12,6 @@ public class Square {
 		// Default Constructor
 		value = 0;
 	}
-	
-	public Square(int param) {
-		// Constructor for a specific value
-		value = param;
-	}
-	
 	
 	// Accesses for private member value
 	int getValue() { return this.value; }

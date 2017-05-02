@@ -11,14 +11,11 @@ import java.util.Objects;
 
 class GUIMain extends JFrame {
 
-   // private Label[][] labelGrid;
     private Grid mainMethodGrid;
     private GraphicsTile[][] tileGrid;
     private int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
 
 
-    // Getter are setter for the main grids
-    // Grid getMainGrid() { return mainMethodGrid; } // sends the modified instance of grid back to main
     void setMainGrid(Grid g) { this.mainMethodGrid = g; } // gets the instance of grid from main
 
     /**
@@ -30,7 +27,6 @@ class GUIMain extends JFrame {
         setSize(500,500);
         setLayout(new GridLayout(5,4));
 
-       // labelGrid = new Label[Grid.SIZE][Grid.SIZE];
         tileGrid = new GraphicsTile[Grid.SIZE][Grid.SIZE];
 
 
@@ -38,7 +34,6 @@ class GUIMain extends JFrame {
             for(int j= 0; j < Grid.SIZE; ++j) {
                 tileGrid[i][j] = new GraphicsTile();
                 add(tileGrid[i][j]);// the grid has no values in it at this stage
-                //tileGrid[i][j].setAlignment(Label.CENTER);
             }
         }
 
@@ -94,8 +89,8 @@ class GUIMain extends JFrame {
                         mainMethodGrid.move(Direction.RIGHT);
                         mainMethodGrid.moveProgression();
                         break;
-                    // Accidentally pressing CAPSLOCK would break the controls of the game
-                    // So these are here to fix that
+                    // Accidentally pressing the CAPSLOCK key would break the controls of the game
+                    // So these cases are here to fix that
                     case "W":
                         mainMethodGrid.move(Direction.UP);
                         mainMethodGrid.moveProgression();

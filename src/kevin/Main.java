@@ -10,6 +10,9 @@ public class Main {
 		GUIMain superFrame = new GUIMain();
 
 		// Initialize a square, and send it over to the GUI
+		// Side Note: sending the grid over to the UI might just be unnecessary, as
+		//  	the grid could be initialized over in that class, with no real change to the functioning of the
+		// 		program.
 		gameGrid.generateSquare();
 		superFrame.setMainGrid(gameGrid);
 

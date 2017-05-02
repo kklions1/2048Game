@@ -8,7 +8,7 @@ import java.util.List;
 class Grid {
 	
 	static final int SIZE = 4;
-	boolean victoryAchieved;
+	private boolean victoryAchieved;
 	Square[][] mainGrid = new Square[SIZE][SIZE];  // Declare a 2D array of Squares
 
 	
@@ -23,7 +23,8 @@ class Grid {
 	}
 
 
-	// Print the grid to console
+	// Print the grid to console, for debugging purposes.
+	// Method is never actually called.
 	void printGrid() {
 		for(int i = 0; i < SIZE; ++i) {
 			for(int j = 0; j < SIZE; ++j) {
@@ -125,10 +126,13 @@ class Grid {
 	}
 	
 	
-	// Returns true if there is no possible move to be made
-	// If the grid has an empty square, there is a possible move
-	// if no square has a neighbor that is equal to itself, and
-	// the grid is full, there is no possible move.
+	/** Returns true if there is no possible move to be made
+	 * If the grid has an empty square, there is a possible move
+	 * if no square has a neighbor that is equal to itself, and
+	 *
+	 * the grid is full, there is no possible move.
+	 */
+
 	private void gameOver() {
 		if(!hasEmptySquare() && !(hasEqualNeighbour())) {
 		    new GameOverScreen();
@@ -136,8 +140,9 @@ class Grid {
 
 	}
 
-	// Method checks to see if any square in the grid is at 2048, and if so, displays the
-	// victory panel
+	/** Method checks to see if any square in the grid is at 2048, and if so, displays the
+	 * victory panel, then sets the victory flag to true, so that the window does not display again
+	 */
 	private void gameWin() {
 		for(int i = 0; i < SIZE; ++i) {
 			for(int j = 0; j < SIZE; ++j) {
@@ -148,6 +153,9 @@ class Grid {
 		}
 	}
 
+	/**
+	 * Main method that handles the movement of each square
+	 */
 	void move(Direction direction) {
 		
 		for(int i = 0; i < SIZE; ++i) {
@@ -228,9 +236,10 @@ class Grid {
 		}
 	}
 
-	// Makes my switch statements later on a little cleaner
-	// This method condenses method calls that happen on every move in the game
-	// regardless of the direction
+	/**
+	 * manages the order of the game state after the movement
+	 * algorithms have been applied.
+	 */
 	void moveProgression() {
 		generateSquare();
 		gameOver();

@@ -12,15 +12,11 @@ public class GraphicsTile extends JPanel {
     private JLabel value;
 
     GraphicsTile() {
-
         value = new JLabel();
         value.setAlignmentX(JLabel.CENTER);
         value.setAlignmentY(JLabel.CENTER);
         add(value);
-        //setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         setVisible(true);
-
-
     }
 
     void setLabel(String text) {
@@ -28,7 +24,7 @@ public class GraphicsTile extends JPanel {
         setColor();
     }
 
-
+    // Handles the color coding of each square
     private void setColor() {
         switch(value.getText()) {
             case "0":

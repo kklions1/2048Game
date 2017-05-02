@@ -5,7 +5,9 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-
+/**
+ * This window simply explains the controls with a few simple lines of text
+ */
 class HelpMenu extends JFrame {
 
     HelpMenu() {

@@ -8,7 +8,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
- * displayed when the game is won
+ * window is displayed when the game is won (that is, a square has the value '2048')
  */
 public class VictoryScreen extends JFrame {
 
