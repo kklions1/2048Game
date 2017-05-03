@@ -48,10 +48,6 @@ class Grid {
 					return true; // Since a value of 0 is considered empty, return true
 			}
 		}
-		
-		// Algorithm has complexity O(n) 
-		// where n is the number of elements in the grid 
-
 		return false;
 	}
 
@@ -164,9 +160,6 @@ class Grid {
 			List<Square> squareSet = new ArrayList<>();
 
 			for(int j = 0; j < SIZE; ++j) {
-
-				// switching on an enum is faster than if/then/else
-				// since there is only one comparison that has to be done
 				switch(direction) {
 				case LEFT: squareSet.add(mainGrid[i][j]); break;
 				case RIGHT: squareSet.add(mainGrid[i][SIZE - j - 1]); break;
