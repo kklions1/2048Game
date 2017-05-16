@@ -8,5 +8,6 @@ GUI is very simplistic, and the program cannot be interacted with by the user
 currently. User input (to actually play the game) and hopefully more
 appealing graphics are things I plan to add in the future.
 
-If you would like to run this game, simply run main.java in src/kevin
+If you would like to run this game, there is an included .jar file found in 
+classes/artifacts/2048
 
